@@ -25,7 +25,7 @@ Route::get('/berita', function () {
     return view('admin/berita/index');
 });
 
-Route::get('/anjyani', function () {
+Route::get('/pesan', function () {
     return view('admin/pesan/index');
 });
 
