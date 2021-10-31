@@ -7,8 +7,8 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Berita</a></li>
-                        <li><a href="#">Pesan</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                        <li><a href="/pesan">Pesan</a></li>
                         <li><a href="#">Pengaturan Admin</a></li>
                         {{-- <li><a href="#">Pages<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>

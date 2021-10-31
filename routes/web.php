@@ -13,12 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', function () {
+//     return view('admin/berita/index');
+// });
+
+Route::get('/berita', function () {
+    return view('admin/berita/index');
 });
 
-Route::get('/admin', function () {
-    return view('admin/master');
+Route::get('/pesan', function () {
+    return view('admin/pesan/index');
 });
 
 Auth::routes();
