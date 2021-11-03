@@ -9,7 +9,7 @@
                         <li><a href="#">Dashboard</a></li>
                         <li><a href="/berita">Berita</a></li>
                         <li><a href="/pesan">Pesan</a></li>
-                        <li><a href="#">Pengaturan Admin</a></li>
+                        <li><a href="/pengaturan-admin">Pengaturan Admin</a></li>
                         {{-- <li><a href="#">Pages<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>

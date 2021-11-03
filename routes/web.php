@@ -25,6 +25,14 @@ Route::get('/berita', function () {
     return view('admin/berita/index');
 });
 
+Route::get('/profile', function () {
+    return view('admin/profile/index');
+});
+
+Route::get('/pengaturan-admin', function () {
+    return view('admin/user/index');
+});
+
 Route::get('/anjyani', function () {
     return view('admin/pesan/index');
 });
