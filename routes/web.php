@@ -13,17 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+ });
 
 // Route::get('/', function () {
 //     return view('admin/berita/index');
 // });
 
 Route::get('/berita', function () {
-    return view('admin/berita/index');
+    return view('admin/berita/news');
 });
+
 
 Route::get('/profile', function () {
     return view('admin/profile/index');
