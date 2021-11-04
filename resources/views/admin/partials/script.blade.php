@@ -6,3 +6,7 @@
 <script src="{{ asset('admin/assets/plugins/select2/js/select2.full.min.js')}}"></script>
 <script src="{{ asset('admin/assets/js/connect.min.js')}}"></script>
 <script src="{{ asset('admin/assets/js/pages/select2.js')}}"></script>
+<script src="{{ asset('admin/assets/plugins/DataTables/datatables.min.js')}}"></script>
+<script src="{{ asset('adminassets/js/pages/datatables.js')}}"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

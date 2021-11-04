@@ -14,7 +14,7 @@
                     <span>Nancy Moore</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="/profile">Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Log out</a>
                 </div>

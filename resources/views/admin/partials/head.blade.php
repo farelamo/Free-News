@@ -17,6 +17,7 @@
     <link href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">   
+    <link href="{{ asset('admin/assets/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">   
 
   
     <!-- Theme Styles -->
