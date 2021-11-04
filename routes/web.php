@@ -34,6 +34,9 @@ Route::get('/pengaturan-admin', function () {
 });
 
 Route::get('/anjyani', function () {
+Route::get('/pesan', function () {
+
+
     return view('admin/pesan/index');
 });
 
