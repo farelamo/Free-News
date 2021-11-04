@@ -10,3 +10,11 @@
 <script src="{{ asset('admin/assets/js/pages/datatables.js') }}"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  $(document).ready(function () {
+    $('#myTable').DataTable({
+      "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All Pages"]],
+      "pageLength": 5
+    });
+  });
+  </script>
