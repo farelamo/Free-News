@@ -14,7 +14,7 @@
                 @include('admin/partials/headnav')
                 @include('admin/partials/navbar')
 
-                <div class="page-content">
+                <div class="">
                     @yield('isi')
                 </div>
                 @include('admin/partials/footer')
@@ -22,5 +22,6 @@
         </div>
         
         @include('admin/partials/script')
+        @stack('js')
     </body>
 </html>
