@@ -37,7 +37,8 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                        data-target="#edit"><i class="fa fa-edit" style="color:#3646C9;"></i></button>
+                                                        data-target="#edit"><i class="fa fa-edit"
+                                                            style="color:#3646C9;"></i></button>
                                                     <div class="modal fade" id="edit" tabindex="-1"
                                                         aria-labelledby="editLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
@@ -75,7 +76,8 @@
                                                         </div>
                                                     </div>
                                                     <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                    data-target="#editFoto"><i class="fa fa-camera" style="color:#3646C9;"></i></button>
+                                                        data-target="#editFoto"><i class="fa fa-camera"
+                                                            style="color:#3646C9;"></i></button>
                                                     <div class="modal fade" id="editFoto" tabindex="-1"
                                                         aria-labelledby="editFotoLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
@@ -104,14 +106,15 @@
                                                         </div>
                                                     </div>
                                                     <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                    data-target="#hapus"><i class="fa fa-trash-alt" style="color:#3646C9;"></i> </button>
+                                                        data-target="#hapus"><i class="fa fa-trash-alt"
+                                                            style="color:#3646C9;"></i> </button>
                                                     <div class="modal fade" id="hapus" tabindex="-1"
                                                         aria-labelledby="hapusLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="hapusLabel">Hapus User
-                                                                        </h5>
+                                                                    </h5>
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
@@ -123,7 +126,8 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-danger">Delete</button>
                                                                 </div>
                                                             </div>
                                                         </div>
