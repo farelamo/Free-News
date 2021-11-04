@@ -1,4 +1,5 @@
 @extends('admin/master')
+
 @section('isi')
 <div class="row">
     <div class="col">

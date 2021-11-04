@@ -33,10 +33,6 @@ Route::get('/pengaturan-admin', function () {
     return view('admin/user/index');
 });
 
-Route::get('/pesan', function () {
-    return view('admin/pesan/index');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
