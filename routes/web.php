@@ -25,6 +25,9 @@ Route::get('/berita', function () {
     return view('admin/berita/news');
 });
 
+Route::get('/kategori', function () {
+    return view('admin/berita/category');
+});
 
 Route::get('/profile', function () {
     return view('admin/profile/index');
