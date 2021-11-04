@@ -33,10 +33,7 @@ Route::get('/pengaturan-admin', function () {
     return view('admin/user/index');
 });
 
-Route::get('/anjyani', function () {
 Route::get('/pesan', function () {
-
-
     return view('admin/pesan/index');
 });
 
