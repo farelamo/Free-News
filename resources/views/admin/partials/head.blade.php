@@ -9,6 +9,7 @@
     
     <!-- Title -->
     <title>Free News - Admin</title>
+    {{-- <link rel="icon" href="{{ asset('images/LOGO FREE NEWS.png')}}" sizes="96×96" type="image/png"> --}}
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
