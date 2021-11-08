@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::get('/', function () {
-     return view('welcome');
- });
+ Route::view('/', 'user.home');
 
 // Route::get('/', function () {
 //     return view('admin/berita/index');
