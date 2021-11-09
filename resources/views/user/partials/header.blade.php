@@ -27,7 +27,7 @@
                     <div class="row d-flex align-items-center">
                         <div class="col">
                             <div class="logo">
-                                <a hrehreff="#"><img src="{{ asset('/images/logo.png') }}" alt="logo"></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt="logo"></a>
                             </div>
                         </div>
                     </div>
@@ -38,13 +38,13 @@
                     <div class="row align-items-center">
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <div class="sticky-logo">
-                                <a href="."><img src="{{ asset('/images/logo.png') }}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt=""></a>
                             </div>
                             <div class="main-menu d-none d-md-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Category</a></li>
+                                        <li><a href="{{ url('/') }}">Home</a></li>
+                                        <li><a href="{{ url('/category') }}">Category</a></li>
                                         <li><a href="#">Latest News</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="#">Contact</a></li>

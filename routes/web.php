@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::view('/', 'user.home');
+Route::view('/', 'user.home');
+Route::view('/category', 'user.category');
 
 // Route::get('/', function () {
 //     return view('admin/berita/index');
