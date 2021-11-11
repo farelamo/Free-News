@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homepageController;
 use App\Http\Controllers\newsController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\messagesController;
@@ -24,6 +25,7 @@ Route::view('/category', 'user.category');
 // END USER
 
 // ADMIN DASHBOARD
+Route::resource('/home', homepageController::class);
 Route::resource('/news', newsController::class);
 Route::resource('/category', categoryController::class);
 Route::resource('/messages', messagesController::class);
