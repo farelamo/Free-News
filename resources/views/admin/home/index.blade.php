@@ -1,5 +1,5 @@
 @extends('admin/master')
 
 @section('isi')
-    <h1>haloooooo</h1>
+    <h1>Ini Dashboard</h1>
 @endsection

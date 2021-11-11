@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\newsController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\messagesController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,33 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// USER PAGE
 Route::view('/', 'user.home');
 Route::view('/category', 'user.category');
+// END USER
 
-// Route::get('/', function () {
-//     return view('admin/berita/index');
-// });
-
-Route::get('/berita', function () {
-    return view('admin/berita/news');
-});
-
-Route::get('/kategori', function () {
-    return view('admin/berita/category');
-});
-
-Route::get('/profile', function () {
-    return view('admin/profile/index');
-});
-
-Route::get('/pengaturan-admin', function () {
-    return view('admin/user/index');
-});
-
-Route::get('/pesan', function () {
-    return view('admin/pesan/index');
-});
+// ADMIN DASHBOARD
+Route::resource('/news', newsController::class);
+Route::resource('/category', categoryController::class);
+Route::resource('/messages', messagesController::class);
+Route::resource('/profile', profileController::class);
+Route::resource('/user', userController::class);
+// END ADMIN DASHBOARD
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
