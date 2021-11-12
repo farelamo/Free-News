@@ -6,11 +6,11 @@
             <div class="col">
                 <div class="horizontal-bar-menu">
                     <ul>
-                        <li><a href="/home">Dashboard</a></li>
-                        <li><a href="/news">Berita</a></li>
-                        <li><a href="/category">Kategori</a></li>
-                        <li><a href="/messages">Pesan</a></li>
-                        <li><a href="/user">Pengaturan Admin</a></li>
+                        <li><a href="/admin/home">Dashboard</a></li>
+                        <li><a href="/admin/news">Berita</a></li>
+                        <li><a href="/admin/category">Kategori</a></li>
+                        <li><a href="/admin/messages">Pesan</a></li>
+                        <li><a href="/admin/user">Pengaturan Admin</a></li>
                         {{-- <li><a href="#">Pages<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>

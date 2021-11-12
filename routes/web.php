@@ -25,12 +25,14 @@ Route::view('/category', 'user.category');
 // END USER
 
 // ADMIN DASHBOARD
-Route::resource('/home', homepageController::class);
-Route::resource('/news', newsController::class);
-Route::resource('/category', categoryController::class);
-Route::resource('/messages', messagesController::class);
-Route::resource('/profile', profileController::class);
-Route::resource('/user', userController::class);
+Route::prefix('admin')->group(function () {
+    Route::resource('/home', homepageController::class);
+    Route::resource('/news', newsController::class);
+    Route::resource('/category', categoryController::class);
+    Route::resource('/messages', messagesController::class);
+    Route::resource('/profile', profileController::class);
+    Route::resource('/user', userController::class);
+});
 // END ADMIN DASHBOARD
 
 Auth::routes();
