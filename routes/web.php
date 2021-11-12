@@ -24,6 +24,7 @@ Route::view('/', 'user.home');
 Route::view('/category', 'user.category');
 Route::view('/latest', 'user.latest');
 Route::view('/about', 'user.about');
+Route::view('/contact', 'user.contact');
 // END USER
 
 // ADMIN DASHBOARD
