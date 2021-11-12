@@ -45,7 +45,7 @@
                                     <ul id="navigation">
                                         <li><a href="{{ url('/') }}">Home</a></li>
                                         <li><a href="{{ url('/category') }}">Category</a></li>
-                                        <li><a href="#">Latest News</a></li>
+                                        <li><a href="{{ url('/latest') }}">Latest News</a></li>
                                         <li><a href="#">About</a></li>
                                         <li><a href="#">Contact</a></li>
                                     </ul>
