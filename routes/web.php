@@ -23,6 +23,7 @@ use App\Http\Controllers\userController;
 Route::view('/', 'user.home');
 Route::view('/category', 'user.category');
 Route::view('/latest', 'user.latest');
+Route::view('/about', 'user.about');
 // END USER
 
 // ADMIN DASHBOARD
