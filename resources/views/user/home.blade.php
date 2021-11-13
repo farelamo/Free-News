@@ -15,7 +15,7 @@
                                 <img src="https://via.placeholder.com/740x400?text=placeholder" alt="">
                                 <div class="trend-top-cap">
                                     <span>Appetizers</span>
-                                    <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of the year</a></h2>
+                                    <h2><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner<br> Contest At Look of the year</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                                             </div>
                                             <div class="trend-bottom-cap">
                                                 <span class="color1">Lifestyple</span>
-                                                <h4><a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a>
+                                                <h4><a href="{{ url('/news/1') }}">Get the Illusion of Fuller Lashes by “Mascng.”</a>
                                                 </h4>
                                             </div>
                                         </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="trand-right-cap">
                                     <span class="color1">Concert</span>
-                                    <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
+                                    <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
                                 </div>
                             </div>
                         @endfor
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="weekly-caption">
                                         <span class="color1">Strike</span>
-                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                        <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
                                     </div>
                                 </div>
                             @endfor
@@ -122,7 +122,7 @@
                                                         </div>
                                                         <div class="what-cap">
                                                             <span class="color1">Night party</span>
-                                                            <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                                            <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -143,7 +143,7 @@
                                                             </div>
                                                             <div class="what-cap">
                                                                 <span class="color1">Night party</span>
-                                                                <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                                                <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="what-cap">
                                         <span class="color1">Night party</span>
-                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                        <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
                                     </div>
                                 </div>
                             @endfor
