@@ -49,8 +49,8 @@
                     <div class="col-lg-6">
                         <div class="footer-menu f-right">
                             <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{ url('/about') }}">About us</a></li>
+                                <li><a href="{{ url('/contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
