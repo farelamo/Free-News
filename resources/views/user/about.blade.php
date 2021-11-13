@@ -91,6 +91,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="news-poster d-none d-lg-block">
+                        <img src="https://via.placeholder.com/300x755?text=space+available" alt="">
+                    </div>
                 </div>
             </div>
         </div>

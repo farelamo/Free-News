@@ -25,9 +25,14 @@
             <div class="header-mid d-none d-md-block">
                 <div class="container">
                     <div class="row d-flex align-items-center">
-                        <div class="col">
+                        <div class="col-xl-3 col-lg-3 col-md-3">
                             <div class="logo">
                                 <a href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}" alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-9">
+                            <div class="header-banner f-right ">
+                                <img src="https://via.placeholder.com/750x100?text=space+available" alt="">
                             </div>
                         </div>
                     </div>
