@@ -7,7 +7,7 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
                                 <ul>
-                                    <li><img src="{{ asset('/images/header_icon1.png') }}" alt="">34ºc, Sunny </li>
+                                    <li><img src="{{ asset('/images/header_icon1.png') }}" alt=""> <span id="weather">loading weather data...</span></li>
                                     <li><img src="{{ asset('/images/header_icon2.png') }}" alt="">{{ date('l, jS F, Y') }}</li>
                                 </ul>
                             </div>

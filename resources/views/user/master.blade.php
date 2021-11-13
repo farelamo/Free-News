@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
-        Free News |
-        @stack('title')
+        @stack('title') -
+        Free News
     </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,6 +74,14 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="{{ asset('/js/plugins.js') }}"></script>
     <script src="{{ asset('/js/main.js') }}"></script>
+
+    <script>
+        let w = $("#weather");
+        $.ajax({url: "http://api.openweathermap.org/data/2.5/weather?q=malang&units=metric&appid=2e1771d6989168058859fdd4b1b30d89"})
+        .done((res)=>w.text(`${Math.floor(res.main.temp)}°C, ${res.weather[0].main} (${res.name})`))
+        .fail(()=>w.text("error"));
+    </script>
+
     @stack('scripts')
 </body>
 
