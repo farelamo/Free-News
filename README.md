@@ -39,7 +39,12 @@
     php artisan migrate
     ```
 
-7. Run Laravel server
+7. Run Seeder
+    ```bash
+    php artisan db:seed
+    ```
+
+8. Run Laravel server
     ```bash
     php artisan serve
     ```
