@@ -4294,6 +4294,10 @@ tr.group {
     width: calc(100% + 51px);
 }
 
+@media (max-width: 575.98px) {
+    .table-responsive table {
+      min-width: 800px; } }
+
 .server-load > .server-stat {
     display: inline-block;
     margin-bottom: 15px;

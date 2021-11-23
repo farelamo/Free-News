@@ -13,48 +13,58 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h5 class="card-title">Berita</h5>
-                                            <table id="myTable" class="display" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Title</th>
-                                                        <th>Content</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>001</td>
-                                                        <td>Kecelakaan di Tol Nganjuk</td>
-                                                        <td>Kecelakaan di Tol Nganjuk pada tanggal 04/11/2021 menyebabkan 2
-                                                            orang korban meninggal dunia, di duga terjadi karena sopir
-                                                            mengantuk.</td>
-                                                        <td>
-                                                            <a href="#"><i class="fas fa-trash-alt"></i></a>
-                                                            <a href="#"><i class="fas fa-edit"></i></a>
-                                                            <a href="#"><i class="fas fa-camera"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>002</td>
-                                                        <td>Pemain Badminton Indonesia Mendapat Medali Emas</td>
-                                                        <td>Minion pemain badminton Indonesia berhasil meraih medali emas
-                                                            pada tournamen Thomas Cup 2021 di Jepang dengan poin unggul 32
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                    data-target="#edit"><i class="fa fa-edit"
-                                                        style="color:#3646C9;"></i></button>
-                                                            <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                            data-target="#editFoto"><i class="fa fa-camera"
-                                                                style="color:#3646C9;"></i></button>
-                                                            <button type="button" class="btn p-2 fs-3" data-toggle="modal"
-                                                    data-target="#hapus"><i class="fa fa-trash-alt"
-                                                        style="color:#3646C9;"></i> </button>
-                                                        </td>
-                                                    </tr>
-                                                    </tfoot>
-                                            </table>
+                                            <div class="table-responsive">
+                                                <table id="myTable" class="display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Title</th>
+                                                            <th>Content</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>001</td>
+                                                            <td>Kecelakaan di Tol Nganjuk</td>
+                                                            <td>Kecelakaan di Tol Nganjuk pada tanggal 04/11/2021
+                                                                menyebabkan 2
+                                                                orang korban meninggal dunia, di duga terjadi karena sopir
+                                                                mengantuk.</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                <a href="#" class="h3"><i class="fas fa-trash-alt m-1"></i></a>
+                                                                <a href="#" class="h3"><i class="fas fa-edit m-1"></i></a>
+                                                                <a href="#" class="h3"><i class="fas fa-camera m-1"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>002</td>
+                                                            <td>Pemain Badminton Indonesia Mendapat Medali Emas</td>
+                                                            <td>Minion pemain badminton Indonesia berhasil meraih medali
+                                                                emas
+                                                                pada tournamen Thomas Cup 2021 di Jepang dengan poin unggul
+                                                                32
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                <a href="#" class="h3"
+                                                                    data-toggle="modal" data-target="#edit">
+                                                                    <i class="fas fa-edit m-1"></i></a>
+                                                                <a href="#" class="h3"
+                                                                    data-toggle="modal" data-target="#editFoto">
+                                                                    <i class="fas fa-camera m-1"></i></a>
+                                                                <a href="#" class="h3"
+                                                                    data-toggle="modal" data-target="#hapus"><i
+                                                                        class="fas fa-trash-alt m-1"></i>
+                                                            </a>
+                                                            </div></div>
+                                                            </td>
+                                                        </tr>
+                                                        </tfoot>
+                                                </table>
+                                            </div>
                                             <div class="d-flex align-items-center">
                                                 <div class="modal fade" id="edit" tabindex="-1"
                                                     aria-labelledby="editLabel" aria-hidden="true">
@@ -92,7 +102,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="modal fade" id="editFoto" tabindex="-1"
                                                     aria-labelledby="editFotoLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -120,7 +130,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="modal fade" id="hapus" tabindex="-1"
                                                     aria-labelledby="hapusLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -153,6 +163,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

@@ -23,6 +23,7 @@
   
     <!-- Theme Styles -->
     <link href="{{ asset('admin/assets/css/connect.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/css/connect.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/admin2.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/dark_theme.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/custom.css')}}" rel="stylesheet">

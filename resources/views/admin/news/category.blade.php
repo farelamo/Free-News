@@ -1,50 +1,147 @@
 @extends('admin/master')
 
 @section('isi')
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="page-content">
+                        <div class="page-info container">
+                            <nav aria-label="breadcrumb">
+                                <div class="main-wrapper container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="card-title">News Category</h5>
+                                            <div class="table-responsive">
+                                                <table id="myTable" class="display" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse ($category as $data)
+                                                            <tr>
+                                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->name }}</td>
+                                                            <td>{{ $data->description }}</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <a href="#" class="h3" data-toggle="modal" 
+                                                                       data-target="#edit" onclick='edit("{{ $data->id }}")'>
+                                                                        <i class="fas fa-edit m-1"></i>    
+                                                                    </a>
 
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <div class="page-content">
-                    <div class="page-info container">
-                        <nav aria-label="breadcrumb">
-                            <div class="main-wrapper container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5 class="card-title">Kategori</h5>
-                                        <table id="myTable" class="display" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Created at</th>
-                                                    <th>Updated at</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>001</td>
-                                                    <td>Kamis,04/11/2021 13.30</td>
-                                                    <td>Not yet</td>
-                                                    <td><a href="#" id="blockui-1" class="btn btn-primary">Edit</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>002</td>
-                                                    <td>Jumat, 30/10/2021 21.00</td>
-                                                    <td>Sabtu, 31/10/2021 08.00</td>
-                                                    <td><a href="#" id="blockui-1" class="btn btn-primary">Edit</a></td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
+                                                                    <p id="{{ $data->id }}" class="d-none">{{ $data->name }}, {{ $data->description }}</p>
+
+                                                                    <a href="#" class="h3" data-toggle="modal" 
+                                                                       data-target="#hapus" onclick='hapus("{{ $data->id }}")'>
+                                                                        <i class="fas fa-trash-alt m-1"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tfoot>
+                                                        @empty
+                                                            <tr colspan="3">
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                            </tr>
+                                                        @endforelse 
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit News Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="form" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" class="d-none" id="eId" name="id" required>
+                    <div class="form-group">
+                        <p>Name</p>
+                        <input type="text" class="form-control" name="name" id="eName" required>
+                        @error('name') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="form-group">
+                        <p>Deskripsi</p>
+                        <textarea class="form-control" name="description" id="eDesc" required></textarea>
+                        @error('description') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                    <hr>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="forms-sample" method="post" id="form">
+                        <div class="form-group">
+                            <input type="hidden" class="d-none" id="dId" name="id" required>
+                            <p id="dhapus"></p>
+                        </div><hr>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
-                                             
+
+@push('scripts')
+    <script type="text/javascript">
+  function edit(id){
+    var data = (document.getElementById(id).textContent).split(",")
+    document.getElementById("eId").value = id;
+    document.getElementById("eName").value = data[0]
+    document.getElementById("eDesc").value = data[1]
+    document.getElementById('form').action = "/admin/category/" + id;
+  }
+  function hapus(id){
+    var data = (document.getElementById(id).textContent).split(",")
+    document.getElementById("dId").value = id
+    document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[0]+'"?'
+    document.getElementById('form').action = "/admin/category/" + id;
+  }
+</script>
+@endpush

@@ -15,4 +15,11 @@ class News extends Model
      * @var string[]
      */
     protected $guarded = [];
+    protected $table = 'news';
+    protected $fillable = [
+        'title', 'image', 'content', 
+        'like_count', 'is_posted', 'author_id', 
+        'category_id' 
+    ];
+    public $timestamps = false;
 }

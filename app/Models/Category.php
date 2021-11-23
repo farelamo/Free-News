@@ -20,4 +20,8 @@ class Category extends Model
     {
         return $this->hasMany(News::class, 'category_id');
     }
+
+    protected $table = 'categories';
+    protected $fillable = ['name', 'description'];
+    public $timestamps = false;
 }
