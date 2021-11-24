@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class profileController extends Controller
@@ -11,9 +12,10 @@ class profileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('admin/profile/index');
+        $data = Profile::find($id);
+        return view('admin/profile/index', compact('data'));
     }
 
     /**
@@ -21,9 +23,9 @@ class profileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -34,7 +36,7 @@ class profileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -56,7 +58,7 @@ class profileController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -66,9 +68,21 @@ class profileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Profile $profile)
     {
-        //
+        $attr = $request->all();
+        if($request->file('picture')) {
+            $photo = $request->file('picture');
+            $photoUrl = $photo->storeAs('foto', "{$request->name}.{$photo->extension()}");
+        } else {
+            $photoUrl = $profile->picture;
+        }
+        $attr['picture']=$photoUrl;
+        // dd($attr);
+
+        $profile->update($attr);
+
+        return back()->withInput();
     }
 
     /**
