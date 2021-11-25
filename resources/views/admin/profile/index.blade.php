@@ -24,7 +24,7 @@
                                 <div class="col-md-4 p-5">
                                     <div class="avatar-item mb-0">
                                         <img alt="image"
-                                            src="{{ $data->picture ? asset('/storage/' . $data->picture) : asset('/images/avatar-1.png') }}"
+                                            src="{{ $data->picture ? asset('/images/profile/' . $data->picture) : asset('/images/profile/avatar-1.png') }}"
                                             id="fotoprofil" class="img-fluid" data-toggle="tooltip" title="Foto
                                                 test" style="width: 100%; object-fit: cover;">
                                         <a class="btn btn-icon btn-primary text-white rounded-circle" data-toggle="modal"
