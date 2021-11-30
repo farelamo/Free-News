@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class newsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        
-        return view('admin/news/news');
+        $news = News::all();
+        return view('admin/news/news', compact('news'));
     }
 
     /**
@@ -24,7 +21,7 @@ class newsController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -35,7 +32,9 @@ class newsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataNews = ['tittle' => $request->tittle, 'image' => $request->image, 'content' => $request->content];
+        $News->create($dataNews);
+        return redirect('/admin/news');
     }
 
     /**
@@ -69,7 +68,10 @@ class newsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $News = News::findorfail($id);
+        $dataNews = ['tittle' => $request->tittle, 'image' => $request->image, 'content' => $request->content];
+        $News->update($dataNews);
+        return redirect('/admin/news');
     }
 
     /**
@@ -80,6 +82,8 @@ class newsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $News = News::findorfail($id);
+        News::find($id)->delete();
+        return redirect('/admin/news');
     }
 }

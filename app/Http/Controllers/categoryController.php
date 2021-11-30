@@ -7,7 +7,7 @@ use App\Models\Category;
 
 class categoryController extends Controller
 {
-
+    
     public function index()
     {
         $category = Category::all();

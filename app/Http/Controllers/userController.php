@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class userController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class userController extends Controller
      */
     public function index()
     {
-        return view('admin/user/index');
+        $user = User::all();
+        return view('admin/user/index', compact('user'));
     }
 
     /**
@@ -34,7 +35,9 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataUser = ['email' => $request->email];
+        $User->create($dataUser);
+        return redirect('/admin/user');
     }
 
     /**
@@ -68,7 +71,10 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $User = User::findorfail($id);
+        $dataUser = ['email' => $request->email];
+        $User->update($dataUser);
+        return redirect('/admin/user');
     }
 
     /**
