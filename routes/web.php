@@ -6,6 +6,7 @@ use App\Http\Controllers\newsController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\messagesController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\User\NewsController as UserNewsController;
 use App\Http\Controllers\userController;
 
 /*
@@ -22,7 +23,7 @@ use App\Http\Controllers\userController;
 // USER PAGE
 Route::view('/', 'user.home');
 Route::view('/category', 'user.news.category');
-Route::view('/latest', 'user.news.latest');
+Route::get('/latest', [UserNewsController::class, 'latest']);
 Route::view('/news/{id}', 'user.news.show');
 Route::view('/about', 'user.about');
 Route::view('/contact', 'user.contact');

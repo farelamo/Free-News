@@ -22,19 +22,23 @@
                                 <div class="tab-pane fade show active" id="nav-0" role="tabpanel">
                                     <div class="whats-news-caption">
                                         <div class="row">
-                                            @for ($i = 0; $i < 6; $i++)
+                                            @foreach ($news->items() as $n)
                                                 <div class="col-lg-4 col-md-4">
                                                     <div class="single-what-news mb-100">
                                                         <div class="what-img">
-                                                            <img src="https://via.placeholder.com/360x355?text=placeholder" alt="">
+                                                            <img src="{{ $n->image }}" alt="">
                                                         </div>
                                                         <div class="what-cap">
-                                                            <span class="color1">Night party</span>
-                                                            <h4><a href="{{ url('/news/1') }}">Welcome To The Best Model Winner Contest</a></h4>
+                                                            <span class="color1">{{ $n->category->name }}</span>
+                                                            <h4>
+                                                                <a href="{{ url('/news/' . $n->id) }}">
+                                                                    {{ Str::of($n->title)->substr(0, 60) }}...
+                                                                </a>
+                                                            </h4>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endfor
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -52,13 +56,39 @@
                     <div class="single-wrap d-flex justify-content-center">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-start">
-                              <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow roted"></span></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                              <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow right-arrow"></span></a></li>
+                                <li class="page-item">
+                                    @if ($news->onFirstPage())
+                                        <span class="page-link">
+                                            <span class="flaticon-arrow roted"></span>
+                                        </span>
+                                    @else
+                                        <a class="page-link" href="{{ $news->previousPageUrl() }}">
+                                            <span class="flaticon-arrow right-arrow roted"></span>
+                                        </a>
+                                    @endif
+                                </li>
+                                @foreach ($news->getUrlRange(1, $news->lastPage()) as $k => $v)
+                                    <li class="page-item @if ($news->currentPage() == $k) active @endif">
+                                        @if ($news->currentPage() == $k)
+                                            <span class="page-link">{{ Str::of($k)->padLeft(2, '0') }}</span>
+                                        @else
+                                            <a class="page-link" href="{{ $v }}">{{ Str::of($k)->padLeft(2, '0') }}</a>                                            
+                                        @endif
+                                    </li>
+                                @endforeach
+                                <li class="page-item">
+                                    @if ($news->currentPage() == $news->lastPage())
+                                        <span class="page-link">
+                                            <span class="flaticon-arrow"></span>
+                                        </span>
+                                    @else
+                                        <a class="page-link" href="{{ $news->nextPageUrl() }}">
+                                            <span class="flaticon-arrow right-arrow"></span>
+                                        </a>
+                                    @endif
+                                </li>
                             </ul>
-                          </nav>
+                        </nav>
                     </div>
                 </div>
             </div>
