@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
-use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -27,9 +27,7 @@ class NewsController extends Controller
     {
         $news = News::with('category:id,name')->paginate(6);
 
-        return view('user.news.latest', [
-            'news' => $news
-        ]);
+        return view('user.news.latest', compact('news'));
     }
 
     /**
@@ -40,6 +38,62 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $news = News::with([
+            'author.profile:id,name,picture,bio',
+            'category:id,name'
+        ])->findOrFail($id);
+
+        $prevNewsId = null;
+        $nextNewsId = null;
+
+        $newsIds = News::get(['id']);
+        foreach ($newsIds as $k => $v) {
+            if ($v['id'] == $id) {
+                if ($k > 0) {
+                    $prevNewsId = $newsIds[$k - 1];
+                }
+                if ($k < count($newsIds) - 1) {
+                    $nextNewsId = $newsIds[$k + 1];
+                }
+                break;
+            }
+        }
+
+        $prevNews = $prevNewsId != null ? (
+            News::where([
+                    'id' => $prevNewsId->id
+                ])->get([
+                    'id', 'title', 'image'
+                ])[0]
+        ) : null;
+
+        $nextNews = $nextNewsId != null ? (
+            News::where([
+                    'id' => $nextNewsId->id
+                ])->get([
+                    'id', 'title', 'image'
+                ])[0]
+        ) : null;
+
+        $categories = Category::select('name')->addSelect([
+            'news_count' => News::selectRaw('COUNT(*)')
+                ->whereColumn('category_id', 'categories.id')
+            ])
+            ->orderBy('name')
+            ->get();
+
+
+        $recent = News::latest()
+            ->limit(4)
+            ->get([
+                'id', 'title',
+                'image', 'updated_at'
+            ]);
+
+        return view('user.news.show', compact([
+            'news',
+            'prevNews', 'nextNews',
+            'categories', 'recent'
+        ]));
     }
 }

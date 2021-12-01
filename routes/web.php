@@ -24,7 +24,7 @@ use App\Http\Controllers\userController;
 Route::view('/', 'user.home');
 Route::view('/category', 'user.news.category');
 Route::get('/latest', [UserNewsController::class, 'latest']);
-Route::view('/news/{id}', 'user.news.show');
+Route::get('/news/{id}', [UserNewsController::class, 'show']);
 Route::view('/about', 'user.about');
 Route::view('/contact', 'user.contact');
 // END USER
