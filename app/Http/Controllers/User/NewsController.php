@@ -25,7 +25,7 @@ class NewsController extends Controller
      */
     public function latest()
     {
-        $news = News::with('category:id,name')->paginate(6);
+        $news = News::latest()->with('category:id,name')->paginate(6);
 
         return view('user.news.latest', compact('news'));
     }
