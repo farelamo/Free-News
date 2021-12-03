@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="logo-box"><a href="#" class="logo-text">Connect</a></div>
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="/login">
                                     @csrf
 
                                     <div class="form-group">

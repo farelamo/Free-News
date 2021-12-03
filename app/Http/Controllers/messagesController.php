@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Messages;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class messagesController extends Controller
 {
@@ -15,12 +16,12 @@ class messagesController extends Controller
 
     public function store(Request $request)
     {
-        $dataMsg = [
+        $messages = messages::create([
             'name' => $request->name, 'email' => $request->email,
             'content' => $request->content, 'type' => $request->type
-        ];
-        $messages->create($dataMsg);
-        return redirect('/admin/messages');
+        ]);
+        $messages->save();
+        return redirect('/admin/messages')->with('Success', 'Data berhasil ditambahkan ! !');;
     }
 
     public function update(Request $request, $id)
@@ -31,13 +32,13 @@ class messagesController extends Controller
             'content' => $request->content, 'type' => $request->type
         ];
         $messages->update($dataMsg);
-        return redirect('/admin/messages');
+        return redirect('/admin/messages')->with('Success', 'Data berhasil diedit ! !');
     }
 
     public function destroy($id)
     {
         $messages = messages::findorfail($id);
         messages::find($id)->delete();
-        return redirect('/admin/messages');
+        return redirect('/admin/messages')->with('Success', 'Data berhasil dihapus ! !');
     }
 }

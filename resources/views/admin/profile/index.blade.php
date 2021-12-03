@@ -63,12 +63,12 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Nama</label>
                                         <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Nama" name="name" value="{{ $data->name }}">
+                                            aria-describedby="emailHelp" placeholder="Nama" name="name" value="{{ $data->email }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Username</label>
                                         <input type="text" class="form-control" id="exampleInputPassword1"
-                                            placeholder="username" name="username" value="{{ $data->username }}">
+                                            placeholder="username" name="username" value="{{ $data->email }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Bio</label>

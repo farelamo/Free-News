@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
+// Use Alert;
 
 class categoryController extends Controller
 {
@@ -16,9 +18,9 @@ class categoryController extends Controller
 
     public function store(Request $request)
     {
-        $dataCat = ['name' => $request->name, 'description' => $request->description];
-        $Category->create($dataCat);
-        return redirect('/admin/category');
+        $Category = Category::create(['name' => $request->name, 'description' => $request->description]);
+        $Category->save();
+        return redirect('/admin/category')->with('Success', 'Data berhasil ditambahkan ! !');
     }
 
     public function update(Request $request, $id)
@@ -26,13 +28,13 @@ class categoryController extends Controller
         $Category = Category::findorfail($id);
         $dataCat = ['name' => $request->name, 'description' => $request->description];
         $Category->update($dataCat);
-        return redirect('/admin/category');
+        return redirect('/admin/category')->with('success', 'Data berhasil diupdate ! !');
     }
 
     public function destroy($id)
     {
         $Category = Category::findorfail($id);
         Category::find($id)->delete();
-        return redirect('/admin/category');
+        return redirect('/admin/category')->with('success', 'Data berhasil dihapus ! !');
     }
 }

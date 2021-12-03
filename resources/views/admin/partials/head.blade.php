@@ -18,7 +18,12 @@
     <link href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">   
-    <link href="{{ asset('admin/assets/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">   
+    <link href="{{ asset('admin/assets/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">  
+    <link href="{{ asset('admin/assets/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/fullcalendar/packages/core/main.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/fullcalendar/packages/daygrid/main.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/fullcalendar/packages/timegrid/main.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/plugins/fullcalendar/packages/bootstrap/main.min.css')}}" rel="stylesheet"> 
 
   
     <!-- Theme Styles -->
@@ -27,6 +32,7 @@
     <link href="{{ asset('admin/assets/css/admin2.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/dark_theme.css')}}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/custom.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

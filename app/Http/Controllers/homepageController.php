@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class homepageController extends Controller
 {
@@ -13,7 +14,8 @@ class homepageController extends Controller
      */
     public function index()
     {
-        return view('admin/home/index');
+        $data = Auth::user();
+        return view('admin/home/index', compact('data'));
     }
 
     /**
