@@ -12,6 +12,7 @@ class profileController extends Controller
 
     public function show($id)
     {
+        // $id = Auth::user()->id;
         $data = profile::find($id);
         $eUser = User::where('profile_id', $id)->first();    
         return view('admin/profile/index', compact('data', 'eUser'));
