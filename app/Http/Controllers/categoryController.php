@@ -9,7 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class categoryController extends Controller
 {
-
+    
     public function index()
     {
         $category = Category::all();
