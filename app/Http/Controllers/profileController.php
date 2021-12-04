@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class profileController extends Controller
 {
@@ -12,9 +13,15 @@ class profileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    // public function index($id)
+    // {
+    //     $data = Profile::find($id);
+    //     return view('admin/profile/index', compact('data'));
+    // }
+
+    public function index()
     {
-        $data = Profile::find($id);
+        $data = Auth::user();
         return view('admin/profile/index', compact('data'));
     }
 
