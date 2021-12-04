@@ -1,6 +1,14 @@
 @extends('admin/master')
 
 @section('isi')
+<div class="main-wrapper container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title">
+                <p class="page-desc"></p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div class="card">
@@ -11,7 +19,7 @@
                                 <div class="main-wrapper container">
                                     <div class="row">
                                        <div class="col-12">
-                                            <h5 class="card-title">Messages</h5>
+                                            <h5 class="card-title" style="font-size: 1.6rem">Messages</h5>
                                             <div class="card-tools" style="margin-top: -50px">
                                                 <a href="#" class="btn btn btn-outline-primary float-right"
                                                 data-toggle="modal" data-target="#tambah">
@@ -85,6 +93,7 @@
             </div>
         </div>
     </div>
+</div>
 
 <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -1,6 +1,14 @@
 @extends('admin/master')
 
 @section('isi')
+<div class="main-wrapper container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title">
+                <p class="page-desc"></p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div class="card">
@@ -10,9 +18,16 @@
                             <nav aria-label="breadcrumb">
                                 <div class="main-wrapper container">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <h5 class="card-title">News</h5>
-                                            <div class="table-responsive">
+                                        <div class="col-12">
+                                            <h1 class="card-title" style="font-size: 1.6rem">News</h1>
+                                            <div class="card-tools" style="margin-top: -50px">
+                                                <a href="#" class="btn btn btn-outline-primary float-right"
+                                                data-toggle="modal" data-target="#tambah">
+                                                    <i class="fas fa-plus"></i> Tambah Data 
+                                                </a>
+                                            </div>
+                                        </div>  
+                                        <div class="table-responsive" style="margin-top: 20px">
                                                 <table id="myTable" class="display" style="width:100%">
                                                     <thead>
                                                         <tr>
@@ -53,6 +68,7 @@
                                                                 <td>No data</td>
                                                                 <td>No data</td>
                                                                 <td>No data</td>
+                                                                <td>No data</td>
                                                             </tr>
                                                         @endforelse
                                                 </table>
@@ -67,6 +83,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

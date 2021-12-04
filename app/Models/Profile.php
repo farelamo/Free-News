@@ -15,4 +15,10 @@ class Profile extends Model
      * @var string[]
      */
     protected $guarded = [];
+
+    protected $fillable = ['name', 'username', 'bio'];
+
+    public function users(){
+        return $this->hasOne("App\Models\User", "profile_id");
+    }
 }

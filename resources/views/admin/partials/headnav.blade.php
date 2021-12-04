@@ -1,3 +1,7 @@
+<?php
+    use Illuminate\Support\Facades\Auth;
+?>
+
 <div class="page-header">
     <nav class="navbar navbar-expand container">
         <div class="logo-box"><a href="#" class="logo-text">Connect</a></div>
@@ -14,7 +18,7 @@
                     <span>Nancy Moore</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/admin/profile">Profile</a>
+                    <a class="dropdown-item" href="/admin/profile/{{ Auth::user()->profile_id }}">Profile</a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

@@ -51,7 +51,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Close</button>
-                                                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,17 +61,19 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Nama" name="name" value="{{ $data->email }}">
+                                        <label>Nama</label>
+                                        <input type="text" class="form-control" placeholder="Nama" name="name" value="{{ $data->name }}">
+                                    </div>
+                                     <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" class="form-control" placeholder="email" name="email" value="{{ $eUser->email }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Username</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1"
-                                            placeholder="username" name="username" value="{{ $data->email }}">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder="username" name="username" value="{{ $data->username }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Bio</label>
+                                        <label>Bio</label>
                                         <textarea class="form-control" name="bio" id="bio" cols="30"
                                             placeholder="Bio" name="bio" placeholder="{{ $data->bio }}">{{ $data->bio }}</textarea>
                                     </div>
@@ -91,5 +93,5 @@
 @endsection
 
 @push('js')
-<script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
 @endpush
