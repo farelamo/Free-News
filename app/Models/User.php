@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->belongsTo(Profiles::class);
+        return $this->belongsTo(Profile::class);
     }
 
     public function news()

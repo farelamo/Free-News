@@ -1,7 +1,6 @@
 @extends('admin/master')
 
 @section('isi')
-
     <div class="row">
         <div class="col">
             <div class="card">
@@ -12,158 +11,129 @@
                                 <div class="main-wrapper container">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h5 class="card-title">Berita</h5>
+                                            <h5 class="card-title">User</h5>
                                             <div class="table-responsive">
                                                 <table id="myTable" class="display" style="width:100%">
                                                     <thead>
                                                         <tr>
-                                                            <th>ID</th>
-                                                            <th>Title</th>
-                                                            <th>Content</th>
+                                                            <th>No</th>
+                                                            <th>Email</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>001</td>
-                                                            <td>Kecelakaan di Tol Nganjuk</td>
-                                                            <td>Kecelakaan di Tol Nganjuk pada tanggal 04/11/2021
-                                                                menyebabkan 2
-                                                                orang korban meninggal dunia, di duga terjadi karena sopir
-                                                                mengantuk.</td>
+                                                        @forelse ($user as $data)
+                                                            <tr>
+                                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->email }}</td>
                                                             <td>
                                                                 <div class="d-flex">
-                                                                <a href="#" class="h3"><i class="fas fa-trash-alt m-1"></i></a>
-                                                                <a href="#" class="h3"><i class="fas fa-edit m-1"></i></a>
-                                                                <a href="#" class="h3"><i class="fas fa-camera m-1"></i></a>
+                                                                    <a href="#" class="h3" data-toggle="modal"
+                                                                       data-target="#edit" onclick='edit("{{ $data->id }}")'>
+                                                                        <i class="fas fa-edit m-1"></i>
+                                                                    </a>
+
+                                                                    <p id="{{ $data->id }}" class="d-none">{{ $data->email }}</p>
+
+                                                                    <a href="#" class="h3" data-toggle="modal"
+                                                                       data-target="#hapus" onclick='hapus("{{ $data->id }}")'>
+                                                                        <i class="fas fa-trash-alt m-1"></i>
+                                                                    </a>
                                                                 </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>002</td>
-                                                            <td>Pemain Badminton Indonesia Mendapat Medali Emas</td>
-                                                            <td>Minion pemain badminton Indonesia berhasil meraih medali
-                                                                emas
-                                                                pada tournamen Thomas Cup 2021 di Jepang dengan poin unggul
-                                                                32
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex">
-                                                                <a href="#" class="h3"
-                                                                    data-toggle="modal" data-target="#edit">
-                                                                    <i class="fas fa-edit m-1"></i></a>
-                                                                <a href="#" class="h3"
-                                                                    data-toggle="modal" data-target="#editFoto">
-                                                                    <i class="fas fa-camera m-1"></i></a>
-                                                                <a href="#" class="h3"
-                                                                    data-toggle="modal" data-target="#hapus"><i
-                                                                        class="fas fa-trash-alt m-1"></i>
-                                                            </a>
-                                                            </div></div>
                                                             </td>
                                                         </tr>
                                                         </tfoot>
+                                                        @empty
+                                                            <tr colspan="3">
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                                <td>No data</td>
+                                                            </tr>
+                                                        @endforelse
                                                 </table>
-                                            </div>
-                                            <div class="d-flex align-items-center">
-                                                <div class="modal fade" id="edit" tabindex="-1"
-                                                    aria-labelledby="editLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="editLabel">Edit
-                                                                    User</h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group">
-                                                                    <label for="">Email : </label>
-                                                                    <input class="form-control" type="email">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div>
-                                                                        <label for="">Approve</label><br>
-                                                                        <label class="switch">
-                                                                            <input type="checkbox">
-                                                                            <span class="slider"></span>
-                                                                        </label> ACC
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal fade" id="editFoto" tabindex="-1"
-                                                    aria-labelledby="editFotoLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="editFotoLabel">Edit
-                                                                    Foto</h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-group">
-                                                                    <label for="">Foto : </label>
-                                                                    <input class="form-control" type="file">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal fade" id="hapus" tabindex="-1"
-                                                    aria-labelledby="hapusLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="hapusLabel">Hapus User
-                                                                </h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Apakah anda yakin untuk menghapus ?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-danger">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="form" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" class="d-none" id="eId" name="id" required>
+                    <div class="form-group">
+                        <p>Email</p>
+                        <input type="text" class="form-control" name="email" id="eEmail" required>
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
+                    </div>
+                    <hr>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="forms-sample" method="post" id="form">
+                        <div class="form-group">
+                            <input type="hidden" class="d-none" id="dId" name="id" required>
+                            <p id="dhapus"></p>
+                        </div><hr>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
-
+@push('scripts')
+    <script type="text/javascript">
+  function edit(id){
+    var data = (document.getElementById(id).textContent).split(",")
+    document.getElementById("eId").value = id;
+    document.getElementById("eEmail").value = data[0]
+    document.getElementById('form').action = "/admin/user/" + id;
+  }
+  function hapus(id){
+    var data = (document.getElementById(id).textContent).split(",")
+    document.getElementById("dId").value = id
+    document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[0]+'"?'
+    document.getElementById('form').action = "/admin/user/" + id;
+  }
+</script>
+@endpush
