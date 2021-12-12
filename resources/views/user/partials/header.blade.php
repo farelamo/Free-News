@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <div class="header-banner f-right ">
-                                <img src="https://via.placeholder.com/750x100?text=space+available" alt="">
+                                <div class="top-ads"></div>
                             </div>
                         </div>
                     </div>
