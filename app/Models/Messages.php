@@ -14,8 +14,5 @@ class Messages extends Model
      *
      * @var string[]
      */
-    protected $guarded = [];
-    protected $table = 'messages';
     protected $fillable = ['name', 'email', 'content', 'type'];
-    public $timestamps = false;
 }
