@@ -9,6 +9,7 @@ use App\Http\Controllers\profileController;
 use App\Http\Controllers\User\NewsController as UserNewsController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\User\AboutController;
 use App\Http\Controllers\User\ContactController;
 
 // USER PAGE
@@ -16,7 +17,7 @@ Route::view('/', 'user.home');
 Route::view('/category', 'user.news.category');
 Route::get('/latest', [UserNewsController::class, 'latest']);
 Route::get('/news/{id}', [UserNewsController::class, 'show']);
-Route::view('/about', 'user.about');
+Route::get('/about', [AboutController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/contact', [ContactController::class, 'store']);
 // END USER
