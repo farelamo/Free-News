@@ -11,9 +11,10 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\User\AboutController;
 use App\Http\Controllers\User\ContactController;
+use App\Http\Controllers\User\HomeController;
 
 // USER PAGE
-Route::view('/', 'user.home');
+Route::get('/', [HomeController::class, 'index']);
 Route::view('/category', 'user.news.category');
 Route::get('/latest', [UserNewsController::class, 'latest']);
 Route::get('/news/{id}', [UserNewsController::class, 'show']);
