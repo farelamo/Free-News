@@ -76,18 +76,18 @@
                                 <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                                     @if ($prevNews != null)
                                         <div class="thumb">
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <div class="img-nav" style="background-image: url({{ $prevNews->image }})"></div>
                                             </a>
                                         </div>
                                         <div class="arrow">
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <span class="lnr text-white ti-arrow-left"></span>
                                             </a>
                                         </div>
                                         <div class="detials">
                                             <p>Prev Post</p>
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <h4>{{ Str::of($prevNews->title)->substr(0, 21) }}...</h4>
                                             </a>
                                         </div>
@@ -97,17 +97,17 @@
                                     @if ($nextNews != null)
                                         <div class="detials">
                                             <p>Next Post</p>
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <h4>{{ Str::of($nextNews->title)->substr(0, 21) }}...</h4>
                                             </a>
                                         </div>
                                         <div class="arrow">
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <span class="lnr text-white ti-arrow-right"></span>
                                             </a>
                                         </div>
                                         <div class="thumb">
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <div class="img-nav" style="background-image: url({{ $nextNews->image }})"></div>
                                             </a>
                                         </div>
@@ -178,7 +178,7 @@
                                 <div class="media post_item">
                                     <div class="img-recent" style="background-image: url({{ $r->image }})"></div>
                                     <div class="media-body">
-                                        <a href="{{ url('/news/' . $r->id) }}">
+                                        <a href="{{ url('/news/' . $r->slug) }}">
                                             <h3>{{ Str::of($r->title)->substr(0, 23) }}...</h3>
                                         </a>
                                         <p>{{ $r->updated_at->format('F d, Y') }}</p>

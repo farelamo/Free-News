@@ -17,7 +17,7 @@ use App\Http\Controllers\User\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 Route::view('/category', 'user.news.category');
 Route::get('/latest', [UserNewsController::class, 'latest']);
-Route::get('/news/{id}', [UserNewsController::class, 'show']);
+Route::get('/news/{slug}', [UserNewsController::class, 'show']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/contact', [ContactController::class, 'store']);

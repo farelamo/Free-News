@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->boolean('is_posted');
             $table->foreignId('author_id')->constrained('users');
             $table->foreignId('category_id')->constrained();
+            $table->string('slug', 255);
             $table->timestamps();
         });
     }

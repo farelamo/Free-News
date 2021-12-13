@@ -31,8 +31,8 @@
                                                         <div class="what-cap">
                                                             <span class="color{{ ($n['category']['id'] % 4) + 1 }}">{{ $n['category']['name'] }}</span>
                                                             <h4>
-                                                                <a href="{{ url('/news/' . $n['id']) }}">
-                                                                    {{ Str::limit($n['title'], 50) }}
+                                                                <a href="{{ url('/news/' . $n['slug']) }}">
+                                                                    {{ Str::limit($n['title'], 42) }}
                                                                 </a>
                                                             </h4>
                                                         </div>

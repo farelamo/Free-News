@@ -50,7 +50,7 @@
                                 <div class="trend-top-cap">
                                     <span>{{ $trendingNow[0]['category']['name'] }}</span>
                                     <h2>
-                                        <a href="{{ url('/news/' . $trendingNow[0]['id']) }}">
+                                        <a href="{{ url('/news/' . $trendingNow[0]['slug']) }}">
                                             {{ Str::limit($trendingNow[0]['title'], 100) }}
                                         </a>
                                     </h2>
@@ -72,8 +72,8 @@
                                                 <div class="trend-bottom-cap">
                                                     <span class="color{{ ($v['category']['id'] % 4) + 1 }}">{{ $v['category']['name'] }}</span>
                                                     <h4>
-                                                        <a href="{{ url('/news/' . $v['id']) }}">
-                                                            {{ Str::limit($v['title'], 50) }}
+                                                        <a href="{{ url('/news/' . $v['slug']) }}">
+                                                            {{ Str::limit($v['title'], 42) }}
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -97,7 +97,7 @@
                                     <div class="trand-right-cap">
                                         <span class="color{{ ($v['category']['id'] % 4) + 1 }}">{{ $v['category']['name'] }}</span>
                                         <h4>
-                                            <a href="{{ url('/news/' . $v['id']) }}">
+                                            <a href="{{ url('/news/' . $v['slug']) }}">
                                                 {{ Str::limit($v['title'], 42) }}
                                             </a>
                                         </h4>
@@ -131,7 +131,7 @@
                                     <div class="weekly-caption">
                                         <span class="color{{ ($row['category']['id'] % 4) + 1 }}">{{ $row['category']['name'] }}</span>
                                         <h4>
-                                            <a href="{{ url('/news/' . $row['id']) }}">
+                                            <a href="{{ url('/news/' . $row['slug']) }}">
                                                 {{ Str::limit($row['title'], 42) }}
                                             </a>
                                         </h4>
@@ -165,7 +165,7 @@
                                     <div class="what-cap">
                                         <span class="color{{ ($row['category']['id'] % 4) + 1 }}">{{ $row['category']['name'] }}</span>
                                         <h4>
-                                            <a href="{{ url('/news/' . $row['id']) }}">
+                                            <a href="{{ url('/news/' . $row['slug']) }}">
                                                 {{ Str::limit($row['title'], 42) }}
                                             </a>
                                         </h4>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class News extends Model
 {
@@ -28,5 +29,14 @@ class News extends Model
     public function author()
     {
         return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        News::creating(function($model) {
+            $hash = dechex(crc32($model->title));
+            $model->slug = Str::slug(Str::of($model->title)->substr(0, 64)) . '-' . $hash;
+        });
     }
 }
