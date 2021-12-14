@@ -26,13 +26,13 @@
                                                 <div class="col-lg-4 col-md-4">
                                                     <div class="single-what-news mb-100">
                                                         <div class="what-img">
-                                                            <img src="{{ $n->image }}" alt="">
+                                                            <img src="{{ $n['image'] }}" alt="">
                                                         </div>
                                                         <div class="what-cap">
-                                                            <span class="color1">{{ $n->category->name }}</span>
+                                                            <span class="color{{ ($n['category']['id'] % 4) + 1 }}">{{ $n['category']['name'] }}</span>
                                                             <h4>
-                                                                <a href="{{ url('/news/' . $n->id) }}">
-                                                                    {{ Str::of($n->title)->substr(0, 60) }}...
+                                                                <a href="{{ url('/news/' . $n['slug']) }}">
+                                                                    {{ Str::limit($n['title'], 42) }}
                                                                 </a>
                                                             </h4>
                                                         </div>

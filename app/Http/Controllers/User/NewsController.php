@@ -9,23 +9,13 @@ use App\Models\News;
 class NewsController extends Controller
 {
     /**
-     * Display a listing of the resource by news category.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function category()
-    {
-        //
-    }
-
-    /**
      * Display a listing of the resource by newer news.
      *
      * @return \Illuminate\Http\Response
      */
     public function latest()
     {
-        $news = News::latest()->with('category:id,name')->paginate(6);
+        $news = News::where('is_posted', 1)->latest()->with('category:id,name')->paginate(6);
 
         return view('user.news.latest', compact('news'));
     }
@@ -36,19 +26,19 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $news = News::with([
+        $news = News::where('slug', $slug)->with([
             'author.profile:id,name,picture,bio',
             'category:id,name'
-        ])->findOrFail($id);
+        ])->firstOrFail();
 
         $prevNewsId = null;
         $nextNewsId = null;
 
         $newsIds = News::get(['id']);
         foreach ($newsIds as $k => $v) {
-            if ($v['id'] == $id) {
+            if ($v['id'] == $news->id) {
                 if ($k > 0) {
                     $prevNewsId = $newsIds[$k - 1];
                 }
@@ -63,7 +53,7 @@ class NewsController extends Controller
             News::where([
                     'id' => $prevNewsId->id
                 ])->get([
-                    'id', 'title', 'image'
+                    'id', 'title', 'image', 'slug'
                 ])[0]
         ) : null;
 
@@ -71,11 +61,11 @@ class NewsController extends Controller
             News::where([
                     'id' => $nextNewsId->id
                 ])->get([
-                    'id', 'title', 'image'
+                    'id', 'title', 'image', 'slug'
                 ])[0]
         ) : null;
 
-        $categories = Category::select('name')->addSelect([
+        $categories = Category::select('name', 'slug')->addSelect([
             'news_count' => News::selectRaw('COUNT(*)')
                 ->whereColumn('category_id', 'categories.id')
             ])
@@ -86,7 +76,7 @@ class NewsController extends Controller
         $recent = News::latest()
             ->limit(4)
             ->get([
-                'id', 'title',
+                'id', 'title', 'slug',
                 'image', 'updated_at'
             ]);
 

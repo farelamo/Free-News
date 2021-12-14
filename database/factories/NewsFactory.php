@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class NewsFactory extends Factory
 {
@@ -15,14 +16,18 @@ class NewsFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->unique()->sentence;
+        $hash = dechex(crc32($title));
+
         return [
-            'title' => $this->faker->text,
+            'title' => $title,
             'image' => $this->faker->imageUrl,
             'content' => implode($this->faker->paragraphs),
             'like_count' => $this->faker->randomNumber(),
             'is_posted' => $this->faker->boolean,
             'author_id' => User::factory(),
-            'category_id' => Category::factory()
+            'category_id' => Category::factory(),
+            'slug' => Str::slug(Str::of($title)->substr(0, 64)) . '-' . $hash
         ];
     }
 }

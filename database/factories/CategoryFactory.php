@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CategoryFactory extends Factory
 {
@@ -13,9 +14,13 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->unique()->userName;
+        $hash = dechex(crc32($name . time()));
+
         return [
-            'name' => $this->faker->word,
-            'description' => $this->faker->paragraph
+            'name' => $name,
+            'description' => $this->faker->bs,
+            'slug' => Str::slug(Str::of($name)->substr(0, 24)) . '-' . $hash
         ];
     }
 }

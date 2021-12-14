@@ -25,6 +25,16 @@
     <link rel="stylesheet" href="{{ asset('/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     @stack('styles')
+    <style>
+        .top-ads {
+            width: 750px;
+            height: 100px;
+            background-image: url('https://i0.wp.com/www.top-news.id/wp-content/uploads/2021/08/IKLAN-BANNER-A.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>

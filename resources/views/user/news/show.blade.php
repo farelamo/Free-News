@@ -76,18 +76,18 @@
                                 <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                                     @if ($prevNews != null)
                                         <div class="thumb">
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <div class="img-nav" style="background-image: url({{ $prevNews->image }})"></div>
                                             </a>
                                         </div>
                                         <div class="arrow">
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <span class="lnr text-white ti-arrow-left"></span>
                                             </a>
                                         </div>
                                         <div class="detials">
                                             <p>Prev Post</p>
-                                            <a href="{{ url('/news/' . $prevNews->id) }}">
+                                            <a href="{{ url('/news/' . $prevNews->slug) }}">
                                                 <h4>{{ Str::of($prevNews->title)->substr(0, 21) }}...</h4>
                                             </a>
                                         </div>
@@ -97,17 +97,17 @@
                                     @if ($nextNews != null)
                                         <div class="detials">
                                             <p>Next Post</p>
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <h4>{{ Str::of($nextNews->title)->substr(0, 21) }}...</h4>
                                             </a>
                                         </div>
                                         <div class="arrow">
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <span class="lnr text-white ti-arrow-right"></span>
                                             </a>
                                         </div>
                                         <div class="thumb">
-                                            <a href="{{ url('/news/' . $nextNews->id) }}">
+                                            <a href="{{ url('/news/' . $nextNews->slug) }}">
                                                 <div class="img-nav" style="background-image: url({{ $nextNews->image }})"></div>
                                             </a>
                                         </div>
@@ -127,64 +127,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="comments-area">
-                        <h4>03 Comments</h4>
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="comment-list">
-                                <div class="single-comment justify-content-between d-flex">
-                                    <div class="user justify-content-between d-flex">
-                                        <div class="thumb">
-                                            <img src="https://via.placeholder.com/70?text=placeholder" alt="">
-                                        </div>
-                                        <div class="desc">
-                                            <p class="comment">Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser</p>
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div class="reply-btn">
-                                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
-                    </div>
-                    <div class="comment-form">
-                        <h4>Leave a Reply</h4>
-                        <form class="form-contact comment_form" action="#" id="commentForm">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="website" id="website" type="text" placeholder="Website">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
+                    <hr>
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                        this.page.url = window.location.href;
+                        this.page.identifier = window.location.pathname;
+                        };
+                        
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://free-news.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
@@ -206,7 +164,7 @@
                             <ul class="list cat-list">
                                 @foreach ($categories as $c)
                                     <li>
-                                        <a href="#" class="d-flex">
+                                        <a href="{{ url('/category/' . $c->slug) }}" class="d-flex">
                                             <p>{{ $c->name }}</p>
                                             <p>({{ $c->news_count }})</p>
                                         </a>
@@ -220,7 +178,7 @@
                                 <div class="media post_item">
                                     <div class="img-recent" style="background-image: url({{ $r->image }})"></div>
                                     <div class="media-body">
-                                        <a href="{{ url('/news/' . $r->id) }}">
+                                        <a href="{{ url('/news/' . $r->slug) }}">
                                             <h3>{{ Str::of($r->title)->substr(0, 23) }}...</h3>
                                         </a>
                                         <p>{{ $r->updated_at->format('F d, Y') }}</p>
