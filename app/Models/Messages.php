@@ -8,14 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Messages extends Model
 {
     use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $guarded = [];
-    protected $table = 'messages';
-    protected $fillable = ['name', 'email', 'content', 'type'];
-    public $timestamps = false;
 }
