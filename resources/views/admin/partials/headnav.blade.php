@@ -10,8 +10,9 @@
             </li>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('admin/assets/images/avatars/profile-image-1.png')}}" alt="profile image">
-                    <span>Nancy Moore</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
+                    {{-- <img src="{{ $data->picture ? asset('/images/profile/' . $data->picture) : asset('/images/profile/avatar-1.png') }}" alt="profile image"> --}}
+                    <img src="{{ Auth::user()->picture ? asset('/images/profile/' . Auth::user()->picture) : asset('/images/profile/avatar-1.png') }}" alt="profile image">
+                    <span>{{ Auth::user()->email }}</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/admin/profile">Profile</a>

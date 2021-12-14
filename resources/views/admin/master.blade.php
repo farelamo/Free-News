@@ -22,6 +22,7 @@
             </div>
         </div>
         
+        @yield('modal')
         @include('admin/partials/script')
         @stack('scripts')
     </body>

@@ -1,6 +1,14 @@
 @extends('admin/master')
 
 @section('isi')
+<div class="main-wrapper container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title">
+                <p class="page-desc"></p>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div class="card">
@@ -11,7 +19,7 @@
                                 <div class="main-wrapper container">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h5 class="card-title">News Category</h5>
+                                            <h5 class="card-title" style="font-size: 1.6rem">News Category</h5>
                                             <div class="card-tools" style="margin-top: -50px">
                                                 <a href="#" class="btn btn btn-outline-primary float-right"
                                                 data-toggle="modal" data-target="#tambah">
@@ -71,6 +79,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -121,7 +130,6 @@
                     @csrf
                     @method('PUT')
 
-                    <input type="hidden" class="d-none"  id="eId" name="id" required>
                     <div class="form-group">
                         <p>Name</p>
                         <input type="text" class="form-control" name="name" id="eName" required>
@@ -159,7 +167,6 @@
                         @method('DELETE')
 
                         <div class="form-group">
-                            <input type="hidden" class="d-none" id="dId" name="id" required>
                             <p id="dhapus"></p>
                         </div><hr>
                         <div class="modal-footer">
@@ -177,16 +184,14 @@
     <script type="text/javascript">
         function edit(id){
             var data = (document.getElementById(id).textContent).split(",")
-            document.getElementById("eId").value = id;
             document.getElementById("eName").value = data[1]
             document.getElementById("eDesc").value = data[2]
-            document.getElementById('formEdit').action = "/admin/category/" + data[0];
+            document.getElementById('formEdit').action = "/admin/category/" + id;
         }
         function hapus(id){
             var data = (document.getElementById(id).textContent).split(",")
-            document.getElementById("dId").value = id
             document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[1]+'"?'
-            document.getElementById('formHapus').action = "/admin/category/" + data[0];
+            document.getElementById('formHapus').action = "/admin/category/" + id;
         }
     </script>
 @endpush

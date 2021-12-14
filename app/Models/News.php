@@ -8,18 +8,8 @@ use Illuminate\Support\Str;
 
 class News extends Model
 {
-    use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
-    protected $fillable = [
-        'title', 'image', 'content', 
-        'like_count', 'is_posted', 'author_id', 
-        'category_id' 
-    ];
+    use HasFactory;    
+    protected $guarded = [];
 
     public function category()
     {

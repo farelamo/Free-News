@@ -13,13 +13,12 @@ class categoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin/news/category', compact('category'));
+        return view('admin/news/category/category', compact('category'));
     }
 
     public function store(Request $request)
     {
-        $Category = Category::create(['name' => $request->name, 'description' => $request->description]);
-        $Category->save();
+        Category::create(['name' => $request->name, 'description' => $request->description]);
         return redirect('/admin/category')->with('Success', 'Data berhasil ditambahkan ! !');
     }
 

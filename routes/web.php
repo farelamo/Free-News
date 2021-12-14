@@ -30,16 +30,15 @@ Route::post('/contact', [ContactController::class, 'store']);
 // ADMIN DASHBOARD
 
 Auth::routes();
-// Route::resource('/admin/login', LoginController::class);
-// Route::post('/admin/login', [LoginController::class, 'login']);
 
 Route::middleware('auth')->prefix('admin')->name('admin')->group(function () {
     Route::resource('/home', homepageController::class);
     Route::resource('/news', newsController::class);
     Route::resource('/category', categoryController::class);
     Route::resource('/messages', messagesController::class);
-    Route::get('/profile', [profileController::class, 'index']);
-    Route::patch('/profile/update/{profile}', [profileController::class, 'update']);
+    // Route::get('/profile', [profileController::class, 'index']);
+    // Route::patch('/profile/update/{profile}', [profileController::class, 'update']);
     Route::resource('/user', userController::class);
+    Route::resource('/profile', profileController::class);
 });
 // END ADMIN DASHBOARD

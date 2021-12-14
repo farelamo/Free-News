@@ -3,78 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class profileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index($id)
+
+    // public function show($id)
     // {
-    //     $data = Profile::find($id);
-    //     return view('admin/profile/index', compact('data'));
+    //     // $id = Auth::user()->id;
+
+    //     dd(Auth::user()->email);
+    //     $data = profile::find($id);
+    //     $eUser = User::where('profile_id', $id)->first();    
+    //     return view('admin/profile/index', compact('data', 'eUser'));
     // }
 
-    public function index()
-    {
-        $data = Auth::user();
-        return view('admin/profile/index', compact('data'));
+    public function index(){
+        $eUser = Auth::user();
+        $data = Profile::find($eUser->profile_id);
+        return view('admin/profile/index', compact('data', 'eUser'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Profile $profile)
     {
         $attr = $request->all();
@@ -86,20 +37,7 @@ class profileController extends Controller
         }
         $attr['picture']=$photoUrl;
         // dd($attr);
-
         $profile->update($attr);
-
         return back()->withInput();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

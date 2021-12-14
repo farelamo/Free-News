@@ -44,7 +44,6 @@
             </div>
         </div>
     </div>
-    <h1>Welcome To Admin Dashboard, {{ $data->email }} !!</h1>
      <div class="main-wrapper container">
         <div class="row">
             <div class="col">
