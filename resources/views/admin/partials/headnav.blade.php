@@ -10,11 +10,12 @@
             </li>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ $data->picture ? asset('/images/profile/' . $data->picture) : asset('/images/profile/avatar-1.png') }}" alt="profile image">
+                    {{-- <img src="{{ $data->picture ? asset('/images/profile/' . $data->picture) : asset('/images/profile/avatar-1.png') }}" alt="profile image"> --}}
+                    <img src="{{ Auth::user()->picture ? asset('/images/profile/' . Auth::user()->picture) : asset('/images/profile/avatar-1.png') }}" alt="profile image">
                     <span>{{ Auth::user()->email }}</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/admin/profile/{{ Auth::user()->profile_id }}">Profile</a>
+                    <a class="dropdown-item" href="/admin/profile">Profile</a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

@@ -16,11 +16,10 @@ class messagesController extends Controller
 
     public function store(Request $request)
     {
-        $messages = messages::create([
+        messages::create([
             'name' => $request->name, 'email' => $request->email,
             'content' => $request->content, 'type' => $request->type
         ]);
-        $messages->save();
         return redirect('/admin/messages')->with('Success', 'Data berhasil ditambahkan ! !');;
     }
 

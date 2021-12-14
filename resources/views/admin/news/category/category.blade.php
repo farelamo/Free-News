@@ -130,7 +130,6 @@
                     @csrf
                     @method('PUT')
 
-                    <input type="hidden" class="d-none"  id="eId" name="id" required>
                     <div class="form-group">
                         <p>Name</p>
                         <input type="text" class="form-control" name="name" id="eName" required>
@@ -168,7 +167,6 @@
                         @method('DELETE')
 
                         <div class="form-group">
-                            <input type="hidden" class="d-none" id="dId" name="id" required>
                             <p id="dhapus"></p>
                         </div><hr>
                         <div class="modal-footer">
@@ -186,16 +184,14 @@
     <script type="text/javascript">
         function edit(id){
             var data = (document.getElementById(id).textContent).split(",")
-            document.getElementById("eId").value = id;
             document.getElementById("eName").value = data[1]
             document.getElementById("eDesc").value = data[2]
-            document.getElementById('formEdit').action = "/admin/category/" + data[0];
+            document.getElementById('formEdit').action = "/admin/category/" + id;
         }
         function hapus(id){
             var data = (document.getElementById(id).textContent).split(",")
-            document.getElementById("dId").value = id
             document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[1]+'"?'
-            document.getElementById('formHapus').action = "/admin/category/" + data[0];
+            document.getElementById('formHapus').action = "/admin/category/" + id;
         }
     </script>
 @endpush
