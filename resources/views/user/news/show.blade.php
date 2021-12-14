@@ -164,7 +164,7 @@
                             <ul class="list cat-list">
                                 @foreach ($categories as $c)
                                     <li>
-                                        <a href="#" class="d-flex">
+                                        <a href="{{ url('/category/' . $c->slug) }}" class="d-flex">
                                             <p>{{ $c->name }}</p>
                                             <p>({{ $c->news_count }})</p>
                                         </a>

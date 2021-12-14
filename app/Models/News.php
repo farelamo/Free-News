@@ -35,8 +35,10 @@ class News extends Model
     {
         parent::boot();
         News::creating(function($model) {
-            $hash = dechex(crc32($model->title));
-            $model->slug = Str::slug(Str::of($model->title)->substr(0, 64)) . '-' . $hash;
+            if (!$model->slug) {
+                $hash = dechex(crc32($model->title));
+                $model->slug = Str::slug(Str::of($model->title)->substr(0, 64)) . '-' . $hash;
+            }
         });
     }
 }

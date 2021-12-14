@@ -10,12 +10,16 @@ use App\Http\Controllers\User\NewsController as UserNewsController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\User\AboutController;
+use App\Http\Controllers\User\CategoryController as UserCategoryController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\HomeController;
 
 // USER PAGE
 Route::get('/', [HomeController::class, 'index']);
-Route::view('/category', 'user.news.category');
+Route::group(['prefix' => 'category'], function() {
+    Route::get('/', [UserCategoryController::class, 'index']);
+    Route::get('/{slug}', [UserCategoryController::class, 'show']);
+});
 Route::get('/latest', [UserNewsController::class, 'latest']);
 Route::get('/news/{slug}', [UserNewsController::class, 'show']);
 Route::get('/about', [AboutController::class, 'index']);

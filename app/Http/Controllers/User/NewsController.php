@@ -9,16 +9,6 @@ use App\Models\News;
 class NewsController extends Controller
 {
     /**
-     * Display a listing of the resource by news category.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function category()
-    {
-        //
-    }
-
-    /**
      * Display a listing of the resource by newer news.
      *
      * @return \Illuminate\Http\Response
@@ -75,7 +65,7 @@ class NewsController extends Controller
                 ])[0]
         ) : null;
 
-        $categories = Category::select('name')->addSelect([
+        $categories = Category::select('name', 'slug')->addSelect([
             'news_count' => News::selectRaw('COUNT(*)')
                 ->whereColumn('category_id', 'categories.id')
             ])
