@@ -19,6 +19,24 @@
             width: 80px;
             height: 80px;
         }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            transition: background-position 1s steps(28);
+            transition-duration: 0s;
+            top: -35px;
+            left: -35px;
+        }
+        .heart.is-active {
+            transition-duration: 1s;
+            background-position: -2800px 0;
+        }
+        .like-info p {
+            left: 40px;
+        }
     </style>
 @endpush
 
@@ -57,13 +75,11 @@
                         </div>
                     </div>
                     <div class="navigation-top">
-                        <div class="d-sm-flex justify-content-between text-center">
-                            <p class="like-info">
-                                <span class="align-middle">
-                                    <i class="fa fa-heart"></i>
-                                </span>
-                                {{ $news->like_count }} people like this
-                            </p>
+                        <div class="d-sm-flex justify-content-between text-center position-relative">
+                            <div class="like-info">
+                                <div class="heart position-absolute"></div>
+                                <p id="like" class="position-absolute">{{ $news->like_count }} people like this</p>
+                            </div>
                             <ul class="social-icons">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -192,3 +208,19 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(function() {
+            $(".heart").on("click", function() {
+                if (!$(this).hasClass("is-active")) {
+                    $.post("{{ url('/api/like-post') }}", { id: {{ $news->id }} })
+                        .done((data) => {
+                            $("#like").html(data + " people like this");
+                            $(this).addClass("is-active");
+                        });
+                }
+            });
+        });
+    </script>
+@endpush

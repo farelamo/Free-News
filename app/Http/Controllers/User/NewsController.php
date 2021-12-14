@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -85,5 +86,18 @@ class NewsController extends Controller
             'prevNews', 'nextNews',
             'categories', 'recent'
         ]));
+    }
+
+    public function likePost(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:news'
+        ]);
+
+        $news = News::find($request->input('id'));
+        $news->like_count++;
+        $news->save();
+
+        return $news->like_count;
     }
 }
