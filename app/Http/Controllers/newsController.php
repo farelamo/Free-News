@@ -89,7 +89,7 @@ class newsController extends Controller
             ];
        }
         $News->update($dataNews);
-        return redirect('/admin/news')->with('success', 'Data Berhasil diedit !!');;
+        return redirect('/admin/news')->with('success', 'Data Berhasil diedit !!');
     }
 
     public function destroy($id)
