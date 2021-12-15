@@ -14,15 +14,6 @@ class messagesController extends Controller
         return view('admin/messages/index', compact('messages'));
     }
 
-    public function store(Request $request)
-    {
-        messages::create([
-            'name' => $request->name, 'email' => $request->email,
-            'content' => $request->content, 'type' => $request->type
-        ]);
-        return redirect('/admin/messages')->with('Success', 'Data berhasil ditambahkan ! !');;
-    }
-
     public function update(Request $request, $id)
     {
         $messages = messages::findorfail($id);
