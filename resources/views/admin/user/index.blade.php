@@ -125,9 +125,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="forms-sample" method="post" id="form">
+                    <form class="forms-sample" method="post" id="formHapus">
+                        @csrf
+                        @method('DELETE')
+
                         <div class="form-group">
-                            <input type="hidden" class="d-none" id="dId" name="id" required>
                             <p id="dhapus"></p>
                         </div><hr>
                         <div class="modal-footer">
@@ -147,7 +149,7 @@
         function edit(id){
             var data = (document.getElementById(id).textContent).split(",");
         
-            let aksi = document.getElementById("editform").setAttribute("action", "/user/" + id + "edit");
+            let aksi = document.getElementById("editform").setAttribute("action", "/admin/user/" + id);
             let cc = document.getElementById("cc").value = data[1];
 
             let note = document.getElementById("note")
@@ -179,9 +181,8 @@
 
         function hapus(id){
             var data = (document.getElementById(id).textContent).split(",")
-            document.getElementById("dId").value = id
             document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[0]+'"?'
-            document.getElementById('form').action = "/admin/user/" + id;
+            document.getElementById('formHapus').action = "/admin/user/" + id;
         }
     </script>
 @endpush

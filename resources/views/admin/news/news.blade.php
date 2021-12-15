@@ -80,6 +80,7 @@
                                                                 <td>No data</td>
                                                                 <td>No data</td>
                                                                 <td>No data</td>
+                                                                <td>No data</td>
                                                             </tr>
                                                         @endforelse
                                                 </table>
