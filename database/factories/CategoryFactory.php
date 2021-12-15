@@ -14,13 +14,9 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->userName;
-        $hash = dechex(crc32($name . time()));
-
         return [
-            'name' => $name,
-            'description' => $this->faker->bs,
-            'slug' => Str::slug(Str::of($name)->substr(0, 24)) . '-' . $hash
+            'name' => $this->faker->unique()->word,
+            'description' => $this->faker->bs
         ];
     }
 }

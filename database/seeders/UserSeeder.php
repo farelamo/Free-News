@@ -15,19 +15,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $datas = [
-            [
-                'role' => 'admin',
-                'email' => 'admin@gmail.com',
-                'password' => 'password',
-                'is_verified' => true
-            ]
-        ];
-
-        foreach ($datas as $data) {
-            $profile = Profile::factory()->create();
-            $data['profile_id'] = $profile->id;
-            User::create($data);
-        }
+        User::factory()->create([
+            'role' => 'admin',
+            'email' => 'admin@gmail.com'
+        ]);
     }
 }

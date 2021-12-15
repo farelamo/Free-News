@@ -16,6 +16,7 @@
 <script src="{{ asset('admin/assets/plugins/fullcalendar/packages/daygrid/main.min.js')}}"></script>
 <script src="{{ asset('admin/assets/plugins/fullcalendar/packages/timegrid/main.min.js')}}"></script>
 <script src="{{ asset('admin/assets/plugins/fullcalendar/packages/bootstrap/main.min.js')}}"></script>
+<script src="{{ asset('admin/assets/js/pages/calendar.js') }}"></script>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> --}}
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
