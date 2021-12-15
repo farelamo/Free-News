@@ -21,10 +21,10 @@ class News extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected static function boot()
+    public static function boot()
     {
         parent::boot();
-        News::creating(function($model) {
+        self::creating(function($model) {
             if (!$model->slug) {
                 $hash = dechex(crc32($model->title));
                 $model->slug = Str::slug(Str::of($model->title)->substr(0, 64)) . '-' . $hash;

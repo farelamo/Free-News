@@ -17,10 +17,10 @@ class Category extends Model
         return $this->hasMany(News::class, 'category_id');
     }
 
-    protected static function boot()
+    public static function boot()
     {
         parent::boot();
-        News::creating(function($model) {
+        self::creating(function($model) {
             if (!$model->slug) {
                 $hash = dechex(crc32($model->name . time()));
                 $model->slug = Str::slug(Str::of($model->name)->substr(0, 24)) . '-' . $hash;
