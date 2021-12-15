@@ -54,7 +54,7 @@ class newsController extends Controller
             ];
         }
         News::create($category);
-        return redirect('/admin/news')->with('success', 'Data Berhasil ditambah !!');;;
+        return redirect('/admin/news')->with('success', 'Data Berhasil ditambah !!');
     }
 
     public function update(Request $request, $id)

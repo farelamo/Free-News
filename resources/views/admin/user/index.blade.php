@@ -20,43 +20,45 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <h5 class="card-title" style="font-size: 1.6rem">User</h5>
-                                            <div class="card-tools" style="margin-top: -50px">
-                                                <a href="#" class="btn btn btn-outline-primary float-right"
-                                                data-toggle="modal" data-target="#tambah">
-                                                    <i class="fas fa-plus"></i> Tambah Data 
-                                                </a>
-                                            </div>
                                         </div>    
                                             <div class="table-responsive" style="margin-top: 20px">
                                                 <table id="myTable" class="display" style="width:100%">
                                                     <thead>
                                                         <tr>
-                                                            <th>No</th>
                                                             <th>Email</th>
+                                                            <th>Verify</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         @forelse ($user as $data)
+                                                        @if ($data->id != Auth::user()->id)
                                                             <tr>
-                                                            <td class="text-center">{{ $loop->iteration }}</td>
-                                                            <td>{{ $data->email }}</td>
-                                                            <td>
-                                                                <div class="d-flex">
-                                                                    <a href="#" class="h3" data-toggle="modal"
-                                                                       data-target="#edit" onclick='edit("{{ $data->id }}")'>
-                                                                        <i class="fas fa-edit m-1"></i>
-                                                                    </a>
+                                                                <td>{{ $data->email }}</td>
+                                                                <td>
+                                                                    @if ( $data->is_verified == 1)
+                                                                        <button class="btn btn-success" disabled>Verified</button>
+                                                                    @else
+                                                                        <button class="btn btn-danger" disabled>Not Verified</button>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex">
+                                                                        <a href="#" class="h3" data-toggle="modal"
+                                                                        data-target="#edit" onclick='edit("{{ $data->id }}")'>
+                                                                            <i class="fas fa-edit m-1"></i>
+                                                                        </a>
 
-                                                                    <p id="{{ $data->id }}" class="d-none">{{ $data->email }}</p>
+                                                                        <p id="{{ $data->id }}" class="d-none">{{ $data->email }}, {{ $data->is_verified }}</p>
 
-                                                                    <a href="#" class="h3" data-toggle="modal"
-                                                                       data-target="#hapus" onclick='hapus("{{ $data->id }}")'>
-                                                                        <i class="fas fa-trash-alt m-1"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                                        <a href="#" class="h3" data-toggle="modal"
+                                                                        data-target="#hapus" onclick='hapus("{{ $data->id }}")'>
+                                                                            <i class="fas fa-trash-alt m-1"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                         </tfoot>
                                                         @empty
                                                             <tr colspan="3">
@@ -90,14 +92,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" id="form" enctype="multipart/form-data">
+                    <form method="post" id="editform">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" class="d-none" id="eId" name="id" required>
-                    <div class="form-group">
-                        <p>Email</p>
-                        <input type="text" class="form-control" name="email" id="eEmail" required>
-                        @error('email') <span class="error">{{ $message }}</span> @enderror
+
+                    <div class="form-group d-none">
+                        <input type="text" class="form-control" id="cc" name="value">
+                    </div>
+                    <div class="custom-control custom-switch">
+                         <input type="checkbox" class="custom-control-input" id="cek" onchange="check()" name="acc">
+                         <label class="custom-control-label" for="cek" id="note"></label>
                     </div>
                     <hr>
                     <div class="modal-footer">
@@ -139,17 +143,45 @@
 
 @push('scripts')
     <script type="text/javascript">
-  function edit(id){
-    var data = (document.getElementById(id).textContent).split(",")
-    document.getElementById("eId").value = id;
-    document.getElementById("eEmail").value = data[0]
-    document.getElementById('form').action = "/admin/user/" + id;
-  }
-  function hapus(id){
-    var data = (document.getElementById(id).textContent).split(",")
-    document.getElementById("dId").value = id
-    document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[0]+'"?'
-    document.getElementById('form').action = "/admin/user/" + id;
-  }
-</script>
+
+        function edit(id){
+            var data = (document.getElementById(id).textContent).split(",");
+        
+            let aksi = document.getElementById("editform").setAttribute("action", "/user/" + id + "edit");
+            let cc = document.getElementById("cc").value = data[1];
+
+            let note = document.getElementById("note")
+            let att = document.createAttribute("checked");
+            let cek = document.getElementById("cek")
+            cek.value = data[1]
+            cek.setAttributeNode(att)
+            
+            if(cek.value == 1){
+                cek.checked = true
+                note.textContent = 'Verified'
+            }else if(cek.value == 0){
+                cek.checked = false
+                note.textContent = 'Not Verified'
+            }
+        }
+
+        function check(){
+            let cc = document.getElementById("cc")
+            let note = document.getElementById("note")
+            if(cek.checked == true){
+                note.textContent = 'Verify'
+                cc.value = 1
+            }else {
+                note.textContent = 'Not Verify'
+                cc.value = 0
+            }
+        }
+
+        function hapus(id){
+            var data = (document.getElementById(id).textContent).split(",")
+            document.getElementById("dId").value = id
+            document.getElementById("dhapus").textContent = 'Apakah anda yakin ingin menghapus "'+data[0]+'"?'
+            document.getElementById('form').action = "/admin/user/" + id;
+        }
+    </script>
 @endpush

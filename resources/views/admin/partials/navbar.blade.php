@@ -10,7 +10,10 @@
                         <li><a href="/admin/news">Berita</a></li>
                         <li><a href="/admin/category">Kategori</a></li>
                         <li><a href="/admin/messages">Pesan</a></li>
-                        <li><a href="/admin/user">Pengaturan Admin</a></li>
+                        @if (Auth::user()->role == "admin")
+                            <li><a href="/admin/user">Pengaturan Admin</a></li>
+                        @endif
+                        
                         {{-- <li><a href="#">Pages<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul>
                                 <li>
