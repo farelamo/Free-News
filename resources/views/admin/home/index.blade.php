@@ -7,7 +7,7 @@
                 <div class="card card-transparent stats-card">
                     <div class="card-body">
                         <div class="stats-info">
-                            <h5 class="card-title">$3,089.67</h5>
+                            <h5 class="card-title">{{ $dataNews }}</h5>
                             <p class="stats-text">Total Berita</p>
                         </div>
                         <div class="stats-icon change-success">
@@ -20,7 +20,7 @@
                 <div class="card card-transparent stats-card">
                     <div class="card-body">
                         <div class="stats-info">
-                            <h5 class="card-title">168,047</h5>
+                            <h5 class="card-title">{{ $dataCat }}</h5>
                             <p class="stats-text">Total Category Berita</p>
                         </div>
                         <div class="stats-icon change-success">
@@ -33,7 +33,7 @@
                 <div class="card card-transparent stats-card">
                     <div class="card-body">
                         <div class="stats-info">
-                            <h5 class="card-title">47,350</h5>
+                            <h5 class="card-title">{{ $dataUser }}</h5>
                             <p class="stats-text">Total Admin</p>
                         </div>
                         <div class="stats-icon change-success">
