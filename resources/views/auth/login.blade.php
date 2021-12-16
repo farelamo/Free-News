@@ -1,11 +1,7 @@
 @include('admin/partials/head')
 
 <body class="auth-page sign-in">
-    <div class='loader'>
-        <div class='spinner-grow text-primary' role='status'>
-            <span class='sr-only'>Loading...</span>
-        </div>
-    </div>
+    @include('sweetalert::alert')
     <div class="connect-container align-content-stretch d-flex flex-wrap">
         <div class="container-fluid">
             <div class="row">
