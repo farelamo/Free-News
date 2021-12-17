@@ -26,7 +26,7 @@
                                                 <div class="col-lg-4 col-md-4">
                                                     <div class="single-what-news mb-100">
                                                         <div class="what-img">
-                                                            <img src="{{ $n['image'] }}" alt="">
+                                                            <img src="{{ url('/images/News/' . $n['image']) }}" alt="">
                                                         </div>
                                                         <div class="what-cap">
                                                             <span class="color{{ ($n['category']['id'] % 4) + 1 }}">{{ $n['category']['name'] }}</span>

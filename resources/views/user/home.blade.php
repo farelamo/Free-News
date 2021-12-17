@@ -46,7 +46,7 @@
                     <div class="col-lg-8">
                         <div class="trending-top mb-30">
                             <div class="trend-top-img">
-                                <div class="main-img" style="background-image: url({{ $trendingNow[0]['image'] }})"></div>
+                                <div class="main-img" style="background-image: url({{ url('/images/News/' . $trendingNow[0]['image']) }})"></div>
                                 <div class="trend-top-cap">
                                     <span>{{ $trendingNow[0]['category']['name'] }}</span>
                                     <h2>
@@ -67,7 +67,7 @@
                                         <div class="col-lg-4">
                                             <div class="single-bottom mb-35">
                                                 <div class="trend-bottom-img mb-30">
-                                                    <div class="md-img" style="background-image: url({{ $v['image'] }})"></div>
+                                                    <div class="md-img" style="background-image: url({{ url('/images/News/' . $v['image']) }})"></div>
                                                 </div>
                                                 <div class="trend-bottom-cap">
                                                     <span class="color{{ ($v['category']['id'] % 4) + 1 }}">{{ $v['category']['name'] }}</span>
@@ -92,7 +92,7 @@
                             @unless ($k < 4)
                                 <div class="trand-right-single d-flex">
                                     <div class="trand-right-img">
-                                        <div class="sm-img" style="background-image: url({{ $v['image'] }})"></div>
+                                        <div class="sm-img" style="background-image: url({{ url('/images/News/' . $v['image']) }})"></div>
                                     </div>
                                     <div class="trand-right-cap">
                                         <span class="color{{ ($v['category']['id'] % 4) + 1 }}">{{ $v['category']['name'] }}</span>
@@ -126,7 +126,7 @@
                             @foreach ($weeklyNews as $row)
                                 <div class="weekly-single">
                                     <div class="weekly-img">
-                                        <div class="lg1-img" style="background-image: url({{ $row['image'] }})"></div>
+                                        <div class="lg1-img" style="background-image: url({{ url('/images/News/' . $row['image']) }})"></div>
                                     </div>
                                     <div class="weekly-caption">
                                         <span class="color{{ ($row['category']['id'] % 4) + 1 }}">{{ $row['category']['name'] }}</span>
@@ -160,7 +160,7 @@
                             @foreach ($recentNews as $row)
                                 <div class="single-recent mb-100">
                                     <div class="what-img">
-                                        <div class="lg2-img" style="background-image: url({{ $row['image'] }})"></div>
+                                        <div class="lg2-img" style="background-image: url({{ url('/images/News/' . $row['image']) }})"></div>
                                     </div>
                                     <div class="what-cap">
                                         <span class="color{{ ($row['category']['id'] % 4) + 1 }}">{{ $row['category']['name'] }}</span>

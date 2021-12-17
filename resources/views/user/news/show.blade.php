@@ -47,7 +47,7 @@
                 <div class="col-lg-8 posts-list">
                     <div class="single-post">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{ $news->image }}" alt="">
+                            <img class="img-fluid" src="{{ url('/images/News/' . $news->image) }}" alt="">
                         </div>
                         <div class="blog_details">
                             <h2>{{ $news->title }}</h2>
@@ -93,7 +93,7 @@
                                     @if ($prevNews != null)
                                         <div class="thumb">
                                             <a href="{{ url('/news/' . $prevNews->slug) }}">
-                                                <div class="img-nav" style="background-image: url({{ $prevNews->image }})"></div>
+                                                <div class="img-nav" style="background-image: url({{ url('/images/News/' . $prevNews->image) }})"></div>
                                             </a>
                                         </div>
                                         <div class="arrow">
@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="thumb">
                                             <a href="{{ url('/news/' . $nextNews->slug) }}">
-                                                <div class="img-nav" style="background-image: url({{ $nextNews->image }})"></div>
+                                                <div class="img-nav" style="background-image: url({{ url('/images/News/' . $nextNews->image) }})"></div>
                                             </a>
                                         </div>
                                     @endif
@@ -134,7 +134,7 @@
                     </div>
                     <div class="blog-author">
                         <div class="media align-items-center">
-                            <img src="{{ $news->author->profile->picture }}" alt="">
+                            <img src="{{ url('/images/profile/' . $news->author->profile->picture) }}" alt="">
                             <div class="media-body">
                                 <a href="#">
                                     <h4>{{ $news->author->profile->name }}</h4>
@@ -192,7 +192,7 @@
                             <h3 class="widget_title">Recent Post</h3>
                             @foreach ($recent as $r)
                                 <div class="media post_item">
-                                    <div class="img-recent" style="background-image: url({{ $r->image }})"></div>
+                                    <div class="img-recent" style="background-image: url({{ url('/images/News/' . $r->image) }})"></div>
                                     <div class="media-body">
                                         <a href="{{ url('/news/' . $r->slug) }}">
                                             <h3>{{ Str::of($r->title)->substr(0, 23) }}...</h3>
